@@ -1,1 +1,38 @@
-Angular JS note
+# Angular JS note
+
+## 1. First Application
+1.1 __Define a new module__  
+`var app = angular.module("App_name",[]);`  
+
+1.2 __Add app config in html__  
+Add `ng-app="App_name"` in the `<body>` tag  
+`ng-app` is called a _directive_.  
+`ng-controller` is similar.  
+`{{ var... }}` is called _expression_  
+
+1.3 __workflow__  
+I.   Create a module, and use `ng-app` in the view to define the application scope.  
+II.  Create a controller, and use `ng-controller` in the view to define the controller scope.  
+III. Add data to `$scope` in the controller so they can be displayed with expressions in the view.  
+
+1.4 __Normal controller syntax__
+`app.controller('MainController', ['$scope',function($scope) {
+}]); `
+
+1.5 __View Filter__  
+` {{ var | filter }} `  
+
+1.6 __Loop in View__  
+`ng-repeat="product in products"`  
+
+1.7 __Image Source__  
+`ng-src="{{  }}"`  
+
+1.8 __Directive__  
+Directives bind behavior to HTML elements. When the app runs, AngularJS walks through each HTML element looking for directives. When it finds one, AngularJS triggers that behavior (like attaching a scope or looping through an array).
+
+1.9 __Set Function__  
+`ng-click="function_name()"`  
+
+
+    
