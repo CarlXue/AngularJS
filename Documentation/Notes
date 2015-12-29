@@ -16,8 +16,11 @@ II.  Create a controller, and use `ng-controller` in the view to define the cont
 III. Add data to `$scope` in the controller so they can be displayed with expressions in the view.  
 
 1.4 __Normal controller syntax__
-`app.controller('MainController', ['$scope',function($scope) {
-}]); `
+
+```
+app.controller('MainController', ['$scope',function($scope) {
+}]); 
+```
 
 1.5 __View Filter__  
 ` {{ var | filter }} `  
@@ -34,5 +37,67 @@ Directives bind behavior to HTML elements. When the app runs, AngularJS walks th
 1.9 __Set Function__  
 `ng-click="function_name()"`  
 
+## 2. Directives
+2.1 __General__  
+Directives are a powerful way to create self-contained, interactive components. Unlike jQuery which adds interactivity as a layer on top of HTML, AngularJS treats interactivity as a native component of HTML.
 
-    
+  
+2.2 __Define Directives__
+
+```
+app.directive('appInfo', function() { 
+  return { 
+    restrict: 'E', 
+    scope: { 
+      info: '=' 
+    }, 
+    templateUrl: 'js/directives/appInfo.html' 
+  }; 
+});
+```
+  
+2.3 __How to Use it in View__
+```
+<app-info info="shutterbugg"></app-info>
+```  
+
+2.4 __Directive with link option__  
+
+```
+app.directive('installApp', function() {
+  return {
+    restrict: 'E',
+    scope: {
+
+    },
+    templateUrl: 'js/directives/installApp.html',
+    link: function(scope, element, attrs){
+      scope.buttonText = "Install",
+        scope.installed = false,
+        scope.download = function() {
+        element.toggleClass('btn-active');
+        if(scope.installed) {
+          scope.buttonText = "Install";
+          scope.installed = false;
+        }else{
+          scope.buttonText = "Uninstall";
+          scope.installed = true;
+        }
+      }
+    }
+  };
+});
+```  
+
+2.5 __Sequence of coding__  
+* First, write the app.directive  
+* Then attach the js file to html  
+* Write the template html file  
+* Replace the block html code with template html  
+
+## 3. Service
+
+
+
+
+
